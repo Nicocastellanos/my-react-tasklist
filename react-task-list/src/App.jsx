@@ -1,6 +1,5 @@
-import AddNewTask from './components/AddNewTask'
 import Header from './components/Header'
-import Task from './components/Task'
+import TaskList from './components/TaskList'
 import '/src/css/App.css'
 
 function App() {
@@ -8,8 +7,7 @@ function App() {
   return (
     <div className='todoapp'>
       <Header/>
-      <AddNewTask/>
-      <Task/>
+      <TaskList/>
     </div>
   )
 }
