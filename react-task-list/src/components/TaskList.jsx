@@ -1,17 +1,44 @@
-import React from 'react'
-import '/src/css/TaskList.css'
+import React, { useEffect, useState } from 'react'
+import AddNewTask from './AddNewTask'
+import TaskTable from './TaskTable'
 
-export default function TaskList(props) {
+export default function TaskList() {
 
-    const {id, titulo, descripcion, iconoUp, iconoDel} = props.taskProp;
 
+    const [tasksItems, setTasksItems] = useState([])
+    
+    function createNewTask(newTask) {
+      if (!tasksItems.find(tasks => tasks.titulo === newTask)) {
+        setTasksItems([...tasksItems, {titulo: newTask, complete: false}])
+      }
+    }
+
+    const updateTask = (task) => {
+      setTasksItems(
+        tasksItems.map((t) => (t.titulo == task.titulo) ? {...t, complete: !t.complete}: t)
+        );
+    }
+
+    function deleteTask(task) {
+      setTasksItems(tasksItems.filter((t) => t.titulo !== task.titulo));
+    }
+
+    useEffect(() => {
+     let data = localStorage.getItem('tasks')
+     if (data) {
+      setTasksItems(JSON.parse(data));
+     }
+    },[])
+    
+    useEffect(() => {
+      localStorage.setItem('tasks', JSON.stringify(tasksItems))
+    }, [tasksItems])
+    
   return (
-    <div className='task-list'>
-        <h2 className='id-task'>{id}</h2>
-        <h1 className='titulo-task'>{titulo}</h1>
-        <p className='descripcion'>{descripcion}</p>
-        <button className='editar'><img src={iconoUp} alt="edit" /></button>
-        <button className='eliminar'><img src={iconoDel} alt="delete" /></button>
-    </div>
+    <>
+        <AddNewTask  createNewTask={createNewTask}/>
+        <TaskTable tasks = {tasksItems} updateTask = {updateTask} deleteTask = {deleteTask} incompleted = "Task incompleted"/>
+        <TaskTable tasks = {tasksItems} updateTask = {updateTask} deleteTask = {deleteTask} showComplete = {true} completed = "Task completed"/>
+    </>
   )
 }
