@@ -1,0 +1,47 @@
+.task{
+    background-color: rgb(174, 182, 219);
+    width: 400px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+.button-delete{
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    align-self: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.task-title{
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+.icon{
+    background-color: transparent;
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+}
+.button-delete:hover{
+    background-color:  #c71f1f;
+    
+}
+.task input[type="checkbox"] {
+    appearance: none; 
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    border: 2px solid #3a6692; 
+    background-color: transparent; 
+    margin-right: 10px; 
+    cursor: pointer; 
+  }
+  .task input[type="checkbox"]:checked {
+    background-color: #1e90ff;
+  }

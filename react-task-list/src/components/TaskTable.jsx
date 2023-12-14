@@ -1,5 +1,6 @@
 import React from 'react'
 import TaskRow from './TaskRow'
+import '../css/TaskTable.css'
 
 export default function TaskTable({tasks, updateTask, showComplete = false, incompleted, completed, deleteTask }) {
 
@@ -17,13 +18,13 @@ export default function TaskTable({tasks, updateTask, showComplete = false, inco
     <table>
         <thead>
         <tr>
-          <td>
+          <td className='title'>
             {incompleted} 
             {completed}
           </td>
-          </tr>
+        </tr>
         </thead>
-        <tbody>
+        <tbody className='tasks'>
         {
            taskTableRows(showComplete)        
         }
