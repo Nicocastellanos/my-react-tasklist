@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../css/TaskRow.css';
 
+//profe es en esta parte del codigo donde empece a implementar el recuadro de editar y eso, pero no se me guarda la tarea actualizada cunado le doy a save
+
 export default function TaskRow({ task, updateTask, deleteTask}) {
   const [editedText, setEditedText] = useState(task.titulo);
   const [isEditing, setIsEditing] = useState(false);
