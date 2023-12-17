@@ -3,6 +3,6 @@ import '/src/css/Header.css'
 
 export default function Header() {
   return (
-    <h1 className='titulo'>Todo App</h1>
+    <h1 className='titulo'>Taski</h1>
   )
 }
