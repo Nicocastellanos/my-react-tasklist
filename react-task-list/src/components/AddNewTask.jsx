@@ -18,8 +18,11 @@ export default function AddNewTask(props) {
     setAddTask('');
   }
   const validTask = (addTask)=>{
+    if (!addTask) {
+      return 'La tarea debe tener min 3 caracteres'
+    }
      if (addTask.length < 3) {
-      return 'La tarea debe tener minimo 3 caracteres'
+      return 'La tarea debe tener min 3 caracteres'
      }
   }
   const isSubmitDisabled = message;
@@ -31,7 +34,7 @@ export default function AddNewTask(props) {
           <label className='label-task'>
             <input
             type="text"
-              placeholder='Add your Title'
+              placeholder='Add your Task'
               className='input'
               value={addTask}
               onChange={(e) => setAddTask(e.target.value)}
@@ -39,7 +42,9 @@ export default function AddNewTask(props) {
           </label>
           <span role='alert' className='add-task-alert'>{message}</span>
         </div>
-          <button className='buttonAdd' onClick={()=>{(addTask)}} disabled={isSubmitDisabled}><img src="/src/img/añadir.png" alt="añadir" className='icono-add' /></button>
+          <button className='buttonAdd' onClick={()=> addTask} disabled={isSubmitDisabled}>
+            <img src="/src/img/añadir.png" alt="añadir" className='icono-add' />
+          </button>
       </form>
     </div>
   )
