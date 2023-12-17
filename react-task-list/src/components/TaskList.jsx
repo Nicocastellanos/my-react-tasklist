@@ -14,10 +14,11 @@ export default function TaskList() {
       }
     }
     
-    const updateTask = (index, updatedTask) => {
-      const updatedTasks = tasksItems.map((task, i) => (i === index ? updatedTask : task)); // Actualiza la tarea en el índice dado
-      setTasksItems(updatedTasks); // Actualiza la lista de tareas
-  };
+    const updateTask = (task) => {
+      setTasksItems(
+        tasksItems.map((t) => (t.titulo == task.titulo) ? {...t, complete: !t.complete}: t)
+        );
+    }
 
     function deleteTask(task) {
       setTasksItems(tasksItems.filter((t) => t.titulo !== task.titulo));
