@@ -52,10 +52,12 @@ export default function TaskRow({ task, updateTask, deleteTask}) {
               </button>
             </>
           ) : (
+            // y otra cosa, cuando pongo una imagen en los botones, se rompe la logica y el boton solo me cambia el estado de la tarea pero no me deja actualizarla
             <>
               <p className='task-title'>{task.titulo}</p>
               <button className='button-edit' onClick={handleEditClick}>
-                Edit
+                  editar
+                <img src="./src/img/edit.png" alt="editar" className='edit' />
               </button>
               <button className='button-delete' onClick={() => deleteTask(task)}>
                 <img src="./src/img/delete.png" alt="borrar" className='icon' />
