@@ -1,5 +1,5 @@
 .task{
-    background-color: rgb(72, 92, 179);
+    background-color: #469FAF;
     width: 400px;
     padding: 18px;
     display: flex;
@@ -9,7 +9,7 @@
     transition: background-color 0.3s ease-in-out;
 }
 .completed-task {
-    background-color: rgb(121, 184, 255); 
+    background-color: #CDEDF6; 
   }
 .button-delete{
     background-color: transparent;
@@ -80,7 +80,7 @@
     background-color: transparent; 
     margin-right: 10px; 
     cursor: pointer; 
-    border-color:  #39aa68;
+    border-color:  #40d17d;
   }
   .task input[type="checkbox"]:checked {
     background-color: #39aa68;
