@@ -9,31 +9,31 @@ const AboutUs = lazy(() =>import('./pages/AboutUs'))
 function App() {
 
   return (
-    <BrowserRouter>
+      <BrowserRouter>
 
-    <NavBar/>
+      <NavBar/>
 
-    <Routes>
-      <Route path='/' element={
-        <Suspense fallback={<div className='loading'>loading...</div>}>
-          <Home/>
-        </Suspense>
-      }/>
-      <Route path='/taskList' element={
-        <Suspense fallback={<div className='loading'>loading...</div>}>
-          <div className='todoapp'>
-            <TaskList/>
-          </div>
-        </Suspense>
-      }/>
-      <Route path='/aboutUs' element={
-        <Suspense fallback={<div className='loading'>loading...</div>}>
-          <AboutUs/>
-        </Suspense>
-      }/>
-    </Routes>
-      
-    </BrowserRouter>
+      <Routes>
+        <Route path='/' element={
+          <Suspense fallback={<div className='loading'>loading...</div>}>
+            <Home/>
+          </Suspense>
+        }/>
+        <Route path='/taskList' element={
+          <Suspense fallback={<div className='loading'>loading...</div>}>
+            <div className='todoapp'>
+              <TaskList/>
+            </div>
+          </Suspense>
+        }/>
+        <Route path='/aboutUs' element={
+          <Suspense fallback={<div className='loading'>loading...</div>}>
+            <AboutUs/>
+          </Suspense>
+        }/>
+      </Routes>
+        
+      </BrowserRouter>
   )
 }
 

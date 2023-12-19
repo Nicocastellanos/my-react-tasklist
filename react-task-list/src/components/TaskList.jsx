@@ -14,16 +14,21 @@ export default function TaskList() {
       }
     }
     
-    const updateTask = (task) => {
-      setTasksItems(
-        tasksItems.map((t) => (t.titulo == task.titulo) ? {...t, complete: !t.complete}: t)
-        );
-    }
-
-    function deleteTask(task) {
+    const completeTask = (task) => {
+      setTasksItems((prevTasks) =>
+        prevTasks.map((t) => (t.titulo === task.titulo ? { ...t, complete: !t.complete } : t))
+      );
+    };
+    
+    const updateTask = (updatedTask) => {
+      setTasksItems((prevTasks) =>
+      prevTasks.map((t) => (t.titulo === updatedTask.titulo ? { ...t, ...updatedTask } : t))
+      );
+    };
+    
+     function deleteTask(task) {
       setTasksItems(tasksItems.filter((t) => t.titulo !== task.titulo));
     }
-
 
     useEffect(() => {
      let data = localStorage.getItem('tasks')
@@ -40,8 +45,8 @@ export default function TaskList() {
     <>
         <Header/>
         <AddNewTask  createNewTask={createNewTask}/>
-        <TaskTable tasks = {tasksItems} updateTask = {updateTask} deleteTask = {deleteTask} incompleted = "Task incompleted"/>
-        <TaskTable tasks = {tasksItems} updateTask = {updateTask} deleteTask = {deleteTask} showComplete = {true} completed = "Task completed"/>
+        <TaskTable tasks = {tasksItems} updateTask = {updateTask} deleteTask = {deleteTask} completeTask = {completeTask} incompleted = "Task incompleted"/>
+        <TaskTable tasks = {tasksItems} updateTask = {updateTask} deleteTask = {deleteTask} completeTask = {completeTask} showComplete = {true} completed = "Task completed"/>
     </>
   )
 }

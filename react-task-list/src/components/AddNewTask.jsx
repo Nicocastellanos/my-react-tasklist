@@ -42,7 +42,7 @@ export default function AddNewTask(props) {
           </label>
           <span role='alert' className='add-task-alert'>{message}</span>
         </div>
-          <button className='buttonAdd' onClick={()=> addTask} disabled={isSubmitDisabled}>
+          <button className='buttonAdd' onClick={()=> addTask} disabled={isSubmitDisabled} type='submit'>
             <img src="/src/img/añadir.png" alt="añadir" className='icono-add' />
           </button>
       </form>
