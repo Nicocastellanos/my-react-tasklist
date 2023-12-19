@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import '../css/TaskRow.css';
 
-//profe es en esta parte del codigo donde empece a implementar el recuadro de editar y eso, pero no se me guarda la tarea actualizada cunado le doy a save
-
-export default function TaskRow({ task, updateTask, deleteTask}) {
+export default function TaskRow({ task, updateTask, deleteTask, completeTask }) {
   const [editedText, setEditedText] = useState(task.titulo);
   const [isEditing, setIsEditing] = useState(false);
   const taskClassName = task.complete ? 'completed-task' : 'incomplete-task';
@@ -26,15 +24,16 @@ export default function TaskRow({ task, updateTask, deleteTask}) {
     setEditedText(e.target.value);
   };
 
+
   return (
     <tr>
       <td>
-        <label className={`task ${taskClassName}`} key={task.titulo}>
+        <div className={`task ${taskClassName}`} key={task.titulo}>
           <input
             className=''
             type="checkbox"
             checked={task.complete}
-            onChange={() => updateTask(task)}
+            onChange={() => completeTask(task)}
           />
           {isEditing ? (
             <>
@@ -44,19 +43,17 @@ export default function TaskRow({ task, updateTask, deleteTask}) {
                 value={editedText}
                 onChange={handleInputChange}
               />
-              <button className='save' onClick={handleSaveClick}>
-                Save
+              <button className='button-save' onClick={handleSaveClick}>
+              <img src="./src/img/aceptar.png" alt="guardar" className='save' />
               </button>
-              <button className='cancel' onClick={handleCancelClick}>
-                Cancel
+              <button className='button-delete' onClick={handleCancelClick}>
+              <img src="./src/img/cancelar.png" alt="cancelar" className='edit' />
               </button>
             </>
           ) : (
-            // y otra cosa, cuando pongo una imagen en los botones, se rompe la logica y el boton solo me cambia el estado de la tarea pero no me deja actualizarla
             <>
-              <p className='task-title'>{task.titulo}</p>
+              <p className='task-title'>{editedText}</p>
               <button className='button-edit' onClick={handleEditClick}>
-                  editar
                 <img src="./src/img/edit.png" alt="editar" className='edit' />
               </button>
               <button className='button-delete' onClick={() => deleteTask(task)}>
@@ -64,8 +61,9 @@ export default function TaskRow({ task, updateTask, deleteTask}) {
               </button>
             </>
           )}
-        </label>
+        </div>
       </td>
     </tr>
   );
 }
+

@@ -1,5 +1,5 @@
 .task{
-    background-color: rgb(90, 106, 179);
+    background-color: rgb(72, 92, 179);
     width: 400px;
     padding: 18px;
     display: flex;
@@ -8,28 +8,32 @@
     border-radius: 0.5rem;
     transition: background-color 0.3s ease-in-out;
 }
-.task:hover{
-    background-color:  rgb(105, 128, 230);
-}
 .completed-task {
-    background-color: rgb(140, 192, 252); 
+    background-color: rgb(121, 184, 255); 
   }
 .button-delete{
     background-color: transparent;
     border: none;
-    border-radius: 14px;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    width: 44px;
+    width: auto;
 }
 .button-edit{
     background-color: transparent;
     border: none;
-    border-radius: 14px;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    width: 44px;
-    margin-left: 100px;
+    width: auto;
+}
+.button-save{
+  background-color: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: auto;
 }
 .task-title{
     background-color: transparent;
@@ -41,21 +45,31 @@
 .icon{
     background-color: transparent;
     padding: 4px;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
 }
 .edit{
     background-color: transparent;
     padding: 4px;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    padding-left: 4px;
+}
+.save{
+  background-color: transparent;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
     padding-left: 4px;
 }
 .button-delete:hover{
     background-color:  #c71f1f;   
 }
 .button-edit:hover{
-    background-color: rgb(196, 205, 255);
+    background-color: rgb(213, 219, 253);
+}
+.button-save:hover{
+  background-color: rgb(153, 255, 140);
 }
 .task input[type="checkbox"] {
     appearance: none; 
@@ -66,16 +80,18 @@
     background-color: transparent; 
     margin-right: 10px; 
     cursor: pointer; 
+    border-color:  #39aa68;
   }
   .task input[type="checkbox"]:checked {
-    background-color: #45d197;
+    background-color: #39aa68;
+    border-color: rgb(39, 92, 50);
   }
   .edit-input{
     padding: 8px;
     border-radius: 0.5rem;
     background-color: transparent;
     border: 0.5px solid;
-    border-color: #3a6692;
+    border-color: #b4edff;
     font-family: 'Ubuntu', sans-serif;
   }
   .save{
@@ -89,5 +105,4 @@
   .save:hover, .cancel:hover{
     background-color: #dcedff;
     border-radius: 0.5rem;
-
   }
